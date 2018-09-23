@@ -27,6 +27,7 @@ class Sorter {
 
   sort(indices) {
 	 var n = indices.length;
+	 if (n>2) {
     for (var i = 0; i < n; i++) {
 		for (var i = 0; i < indices.length; i++){
 		var v = this.arr[indices[ i ]], j = i-1;
@@ -35,6 +36,20 @@ class Sorter {
 		this.arr[indices[ j+1 ]] = v;
      }    
 	 }	 
+	 } else {
+		if (indices[0]<indices[1]) {
+		 if (this.arr[indices[0]] > this.arr[indices[1]]) {
+			 var x=this.arr[indices[0]] ;
+			 this.arr[indices[0]] = this.arr[indices[1]];
+			this.arr[indices[1]] = x; 
+		 }
+		 } else {
+		 if (this.arr[indices[1]] > this.arr[indices[0]]) {
+			 var x=this.arr[indices[0]] ;
+			 this.arr[indices[0]] = this.arr[indices[1]];
+			this.arr[indices[1]] = x;
+		 }
+	 }}
     return this.arr; 
 }
 
